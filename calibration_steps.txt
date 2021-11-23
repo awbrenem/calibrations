@@ -1,0 +1,58 @@
+Calibrations applied to data
+
+
+1) find non-orthogonality matrix to change to orthogonal base (based on one of the axes). This can then be 
+rotated to spacecraft coord, which is probably extremely close to the orthogonal base. 
+
+You either know how to compute this prior to launch (e.g. measured boom deflections on water bath), or you have to compute based on a known quantity, e.g. E = u x B field averaged over time. This will allow you to find the rotation that minimizes the error (e.g. chi-sqr) 
+
+Steps for testing this:
+--create a test vector in a known direction 
+--create 3 booms in known directions - determine what part of vector they would see 
+--distort those results a small amount (mimicing non-orthogonality in the booms)
+
+(properties of orthogonal matrices ->  M * MT = MT * M = I ;   MT = M-1)
+
+v' = A v  (A is rotation matrix) 
+
+A_transpose = [[cos(theta11), cos(theta12)], 
+               [cos(theta21), cos(theta22)]]
+
+where theta11 is the angle b/t the x-component of v and x-component of v'
+
+A = [[cos(theta11), cos(theta21)],
+     [cos(theta12), cos(theta22)]]
+
+
+
+
+
+2) Adjust timing:
+--sampling to center of time bin 
+--ensure that sampling is fast enough to capture variations in Bo over a spin (important near perigee) 
+--ensure no sampling irregularities/day boundaries, etc. 
+
+3) Remove coning issues caused by gyroscopic presession 
+
+4) Determine effective lengths - can do this by comparison of measured E to VxB
+
+5) spinfit (removes offsets) - using 32 S/sec spinning data (E12 on RBSPb) that is time-tag corrected and has DC offsets removed. 
+(Sheng's e_uvw and e_uvw_diagonal files)
+
+Steps: 
+
+--get uvw E-field (from potentials). 
+Euvw = ADCcounts_uvw * Gain / (boomlength*1000)
+
+--remove any DC offsets. Note that this is done in 2 stages. The first is to smooth over a spin. However, this can still contain spintones near perigee b/c Bo changes amplitude over single spin. Second step is to calculate second-order DC offset by removing spin tone of first-order DC offset. 
+
+--apply time-tag corrections. 
+
+--spinfit 
+
+--subtract model E-field (Evxb + Ecoro). Note that when constructing these be sure to 
+
+
+
+
+
