@@ -1,4 +1,12 @@
-Calibrations applied to data
+https://backend.orbit.dtu.dk/ws/portalfiles/portal/5482925/60677_Orsted2002-Peter+Siegbj%C3%B8rn+J%C3%B8rgensen-Inter-calibration+of+accurate+attitude+instruments.pdf
+http://ltcconline.net/greenl/courses/203/vectors/orthonormalbases.htm
+https://www.khanacademy.org/math/linear-algebra/alternate-bases/orthonormal-basis/v/linear-algebra-gram-schmidt-example-with-3-basis-vectors
+https://iopscience.iop.org/article/10.1088/0957-0233/11/2/304/pdf
+
+
+
+
+Calibrations applied to Electric and Magnetic field data
 
 
 1) find non-orthogonality matrix to change to orthogonal base (based on one of the axes). This can then be 
